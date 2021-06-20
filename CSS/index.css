@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+:root {
+  --bg-clr: #111111;
+  --speed: 4s;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-clr);
+  color: #fff;
+}
+
+h1 {
+  font-size: 0.9rem;
+  position: relative;
+  width: max-content;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+h1::before {
+  background-color: var(--bg-clr);
+  animation: typewriter var(--speed) steps(29) 1.5s forwards;
+}
+
+/* caret */
+h1::after {
+  width: 0.2rem;
+  background-color: #fff;
+  animation: typewriter var(--speed) steps(29) 1.5s forwards,
+    blink 400ms steps(29) infinite;
+}
+
+p {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: slideUp 1s ease calc(var(--speed) + 2s) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  * {
+    font-size: 23px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  * {
+    font-size: 25px;
+  }
+}
